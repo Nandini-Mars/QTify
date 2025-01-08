@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Search.module.css";
+import "./SearchStyles.css"
 import { ReactComponent as SearchIcon } from "../../assets/search-icon.svg";
 import useAutocomplete from "@mui/base/useAutocomplete";
 import { styled } from "@mui/system";
