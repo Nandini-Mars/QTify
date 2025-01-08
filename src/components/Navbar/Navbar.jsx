@@ -24,10 +24,7 @@ function Navbar({ searchData }) {
   return (
     <nav className="navbar">
       <Logo />
-      <Search
-        placeholder="Search a song of your choice"
-        searchData={searchData}
-      />
+      <Search />
     </nav>
   );
 }
