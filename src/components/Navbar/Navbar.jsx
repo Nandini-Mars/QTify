@@ -22,10 +22,12 @@ import "./NavbarStyles.css";
 }*/
 function Navbar({ searchData }) {
   return (
+    <>
     <nav className="navbar">
       <Logo />
       <Search />
     </nav>
+    </>
   );
 }
 
