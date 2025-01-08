@@ -36,7 +36,7 @@ const Listbox = styled("ul")(({ theme }) => ({
   },
 }));
 
-function Search({ searchData, placeholder }) {
+/*function Search({ searchData, placeholder }) {
   const {
     getRootProps,
     getInputLabelProps,
@@ -62,7 +62,7 @@ function Search({ searchData, placeholder }) {
   return (
     <div style={{ position: "relative" }}>
       <form
-        className={styles.wrapper}
+        className="SearchStyles.css"
         onSubmit={(e) => {
           onSubmit(e, value);
         }}
@@ -70,7 +70,7 @@ function Search({ searchData, placeholder }) {
         <div {...getRootProps()}>
           <input
             name="album"
-            className={styles.search}
+            className="SearchStyles.css"
             placeholder={placeholder}
             required
             {...getInputProps()}
@@ -110,6 +110,14 @@ function Search({ searchData, placeholder }) {
       ) : null}
     </div>
   );
+}*/
+function Search({ searchData, placeholder }) {
+  <form>
+    <input className="search"/>
+    <button>
+
+    </button>
+  </form>
 }
 
 export default Search;
