@@ -112,9 +112,9 @@ const Listbox = styled("ul")(({ theme }) => ({
   );
 }*/
 function Search({ searchData, placeholder }) {
-  <>
+  return(<>
   <input className="search"/>
-  </>
+  </>);
 }
 
 export default Search;
