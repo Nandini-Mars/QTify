@@ -114,7 +114,7 @@ const Listbox = styled("ul")(({ theme }) => ({
 function Search({ searchData, placeholder }) {
   return(
 <div>
-  <input type="text" style={{ backgroundColor: "white" }} className="figsearch"/>
+  <input type="text" className="figsearch"/>
 </div>
   );
 }
