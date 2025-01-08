@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../Button/Button";
-import Logo from "../Logo/Logo";
-import Search from "../Search/Search";
-import styles from "./Navbar.module.css";
+//import Button from "../Button/Button";
+//import Logo from "../Logo/Logo";
+//import Search from "../Search/Search";
+import "./NavbarStyles.css";
 
-function Navbar({ searchData }) {
+
+/*function Navbar({ searchData }) {
   return (
     <nav className={styles.navbar}>
       <Link to="/">
@@ -18,6 +19,15 @@ function Navbar({ searchData }) {
       <Button>Give Feedback</Button>
     </nav>
   );
+}*/
+function Navbar({ searchData }) {
+  return (
+    <nav className="navbar">
+      <p>Hello</p>
+    </nav>
+  );
 }
+
+
 
 export default Navbar;
