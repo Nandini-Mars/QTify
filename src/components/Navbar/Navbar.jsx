@@ -25,7 +25,6 @@ function Navbar() {
     <>
     <nav className="navbar">
       <Logo />
-      <Search/>
     </nav>
     </>
   );
