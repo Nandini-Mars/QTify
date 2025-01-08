@@ -113,14 +113,9 @@ const Listbox = styled("ul")(({ theme }) => ({
 }*/
 function Search({ searchData, placeholder }) {
   return(
-  <>
-  <div style={{ position: "relative" }}>
-    <form className="wrapper">
+<div>
   <input type="text" className="figsearch"/>
-  <button type="submit" className="searchButton">Hi</button>
-  </form>
-  </div>
-  </>
+</div>
   );
 }
 
