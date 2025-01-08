@@ -1,6 +1,6 @@
 import React from "react";
 import "./SearchStyles.css"
-import SearchIcon from '@mui/icons-material/Search';
+/*import SearchIcon from '@mui/icons-material/Search';
 import useAutocomplete from "@mui/base/useAutocomplete";
 import { styled } from "@mui/system";
 import { truncate } from "../../helpers/helpers";
