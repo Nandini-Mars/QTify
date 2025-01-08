@@ -1,6 +1,6 @@
 import React from "react";
 import "./SearchStyles.css"
-import { ReactComponent as SearchIcon } from "../../assets/search-icon.svg";
+import SearchIcon from '@mui/icons-material/Search';
 import useAutocomplete from "@mui/base/useAutocomplete";
 import { styled } from "@mui/system";
 import { truncate } from "../../helpers/helpers";
@@ -112,10 +112,10 @@ const Listbox = styled("ul")(({ theme }) => ({
   );
 }*/
 function Search({ searchData, placeholder }) {
-  <form>
+  <form className="wrapper">
     <input className="search"/>
-    <button>
-
+    <button className="searchButton" type="submit">
+      <SearchIcon/>
     </button>
   </form>
 }
