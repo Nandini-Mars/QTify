@@ -117,7 +117,7 @@ function Search({ searchData, placeholder }) {
   <div style={{ position: "relative" }}>
     <form className="wrapper">
   <input type="text" className="figsearch"/>
-  <button className="searchButton">Hi</button>
+  <button type="submit" className="searchButton">Hi</button>
   </form>
   </div>
   </>
