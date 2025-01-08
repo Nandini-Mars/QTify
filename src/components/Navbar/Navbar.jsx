@@ -20,7 +20,7 @@ import "./NavbarStyles.css";
     </nav>
   );
 }*/
-function Navbar({ searchData }) {
+function Navbar() {
   return (
     <>
     <nav className="navbar">
