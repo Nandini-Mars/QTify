@@ -1,4 +1,5 @@
 .navbar {
+    background-color: #34c94b;  
     width: 1440px;
     height: 74px;
     gap: 0px;
@@ -8,7 +9,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid 
+    border: 1px solid ;
+    z-index: 1;
+    
   }
   input{
     background-color: white;

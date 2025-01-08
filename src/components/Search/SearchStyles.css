@@ -21,6 +21,7 @@ border: 1px 0px 0px 0px;
 border-color: black;
 opacity: 0px;
 background-color: #FFFFFF;
+z-index: 1000;
 }
   
   .wrapper {
