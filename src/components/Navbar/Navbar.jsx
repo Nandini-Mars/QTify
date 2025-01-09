@@ -4,6 +4,7 @@ import React from "react";
 import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
 import "./NavbarStyles.css";
+import Button from "../Button/Button";
 
 
 /*function Navbar({ searchData }) {
@@ -26,6 +27,7 @@ function Navbar() {
     <nav className="navbar wrapper">
       <Logo/>
       <Search/>
+      <Button/>
     </nav>
     </div>
   );
