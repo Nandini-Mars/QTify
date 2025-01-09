@@ -1,14 +1,6 @@
 .navbar {
     background-color: #34c94b;  
     width: 1440px;
-    height: 74px;
-    gap: 0px;
-    opacity: 0px;
-    
-    padding: 0px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid ;
+    height: 74px; 
     
   }
