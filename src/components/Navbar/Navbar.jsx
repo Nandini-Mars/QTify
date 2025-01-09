@@ -24,6 +24,7 @@ function Navbar() {
   return (
     <div>
     <nav className="navbar">
+      <Logo/>
     </nav>
     </div>
   );
