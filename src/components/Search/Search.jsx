@@ -1,5 +1,6 @@
 import React from "react";
-import "./SearchStyles.css"
+import "./SearchStyles.css";
+import SearchIcon from '@mui/icons-material/Search';
 /*import SearchIcon from '@mui/icons-material/Search';
 import useAutocomplete from "@mui/base/useAutocomplete";
 import { styled } from "@mui/system";
@@ -118,8 +119,13 @@ function Search({ searchData, placeholder }) {
   <input 
   type="text"
   placeholder="Search"
-  className="figsearch"
+  className="search"
   required/>
+  <div>
+  <button className="searchButton" type="submit">
+            <SearchIcon />
+          </button>
+  </div>
   </form>
 </div>
   );
