@@ -23,7 +23,7 @@ import "./NavbarStyles.css";
 function Navbar() {
   return (
     <div>
-    <nav className="navbar">
+    <nav className="navbar wrapper">
       <Logo/>
       <Search/>
     </nav>
