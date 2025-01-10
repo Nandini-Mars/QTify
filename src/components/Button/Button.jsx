@@ -6,6 +6,7 @@ const Button = () => {
             <button 
             type="submit"
             className="button"
+            style={{ backgroundColor: 'black', color: '#34c94b' }}
             >
                 Give Feedback
             </button>
