@@ -115,7 +115,7 @@ const Listbox = styled("ul")(({ theme }) => ({
 function Search({ searchData, placeholder }) {
   return(
 <div>
-  <form>
+  <form className="wrapper">
   <input 
   type="text"
   placeholder="Search"
