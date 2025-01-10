@@ -8,14 +8,6 @@ function Hero() {
         <h1>100 Thousand Songs, ad-free</h1>
         <h1>Over thousands podcast episodes</h1>
       </div>
-      <div>
-        <img
-          src={HeroImage}
-          className="hero-image"
-          width={212}
-          alt="headphones"
-        />
-      </div>
     </div>
   );
 }
