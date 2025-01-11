@@ -1,5 +1,4 @@
 import React from "react";
-import HeroImage from "../../assets/vibrating-headphone.png"
 import "./HeroStyles.css";
 
 function Hero() {
