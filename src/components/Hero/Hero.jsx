@@ -5,7 +5,7 @@ import HeroImage from "../../assets/vibrating-headphone.png"
 function Hero() {
   return (
     <div className="container">
-            <div>
+            <div className="title">
         <h1>100 Thousand Songs, ad-free</h1>
         <h1>Over thousands podcast episodes</h1>
       </div>
