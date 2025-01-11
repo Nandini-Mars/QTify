@@ -5,10 +5,12 @@ import "./Styles.css";
 
 function App() {
   return (
+    <>
     <div className="app">
       <Navbar/>
       <Hero/>
     </div>
+    </>
   );
 }
 
