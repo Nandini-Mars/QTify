@@ -1,11 +1,14 @@
-.hero {
+.container {
     background-color: #121212;
     height:270px;
     width:100%;
     display:flex;
-    justify-content: space-between;
-    color:white;
-    flex-wrap: wrap;
+    align-items: center;
+    gap:10px;
+}
+
+.hero {
+
 }
 .hero-image {
 height: 212px;
