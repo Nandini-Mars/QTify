@@ -3,7 +3,7 @@
     height: 270 px;
     width:100%;
     display:flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 .title{
     color:white;
