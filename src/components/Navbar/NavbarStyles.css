@@ -4,6 +4,7 @@
     height: 80px; 
     display:flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding:5px;
      }
 
