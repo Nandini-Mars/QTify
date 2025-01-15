@@ -23,8 +23,8 @@ import Button from "../Button/Button";
 }*/
 function Navbar() {
   return (
-    <div>
-    <nav className="navbar">
+    <div className="navbar">
+    <nav>
       <Logo/>
     </nav>
     </div>
