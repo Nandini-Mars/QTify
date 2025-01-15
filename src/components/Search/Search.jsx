@@ -119,7 +119,7 @@ function Search({ searchData, placeholder }) {
   <input 
   type="text"
   placeholder="search"
-  className="search"
+  className="figsearch"
   required/>
   <div>
   <button className="searchButton" type="submit">
