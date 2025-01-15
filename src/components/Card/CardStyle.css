@@ -1,11 +1,11 @@
 .album-card {
     display: flex;
     flex-direction: column;
-    width: 300px;
-    border-radius: 16px;
+    width: 159px;
+    height: 205px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-    gap: 32px;
     margin-top: 20px;
   }
   
