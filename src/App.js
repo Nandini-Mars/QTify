@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Hero from './components/Hero/Hero.jsx';
+import AlbumCard from './components/Card/Card.jsx';
 import "./Styles.css";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className="app">
       <Navbar/>
       <Hero/>
+      <AlbumCard/>
     </div>
     </>
   );
