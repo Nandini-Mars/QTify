@@ -6,12 +6,12 @@ height: 47px;
 margin-top: 13px;
 margin-bottom: 10px;
 margin-left: 1238px;
-padding: 10px 16px 10px 16px;
 gap: 10px;
 border-radius: 12px;
 border: 1px 0px 0px 0px;
 background-color: #121212;
 cursor: pointer;
 font-family: 'Poppins', sans-serif;
-color: #34c94b
+color: #34c94b;
+font-weight: 500;
 }
