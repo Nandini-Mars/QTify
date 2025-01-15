@@ -23,7 +23,7 @@ import Button from "../Button/Button";
 }*/
 function Navbar() {
   return (
-    <div>
+    <div className="container">
     <nav className="navbar">
       <Logo/>
       <Search/>
