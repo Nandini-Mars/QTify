@@ -119,7 +119,7 @@ function Search({ searchData, placeholder }) {
   <input 
   type="text"
   placeholder="search"
-  className="search wrapper"
+  className="search"
   required/>
   <div>
   <button className="searchButton" type="submit">
