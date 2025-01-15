@@ -7,7 +7,7 @@ const AlbumCard = () => {
   const album = {
     name: "Dummy Album",
     follows: 3500,
-    imageUrl: "https://via.placeholder.com/500", // Dummy image URL
+    imageUrl: "https://qtify-backend-labs.crio.do/albums/top", // Dummy image URL
   };
 
   return (
