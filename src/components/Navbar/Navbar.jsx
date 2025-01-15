@@ -27,6 +27,7 @@ function Navbar() {
     <nav className="navbar">
       <Logo/>
       <Search/>
+      <Button/>
     </nav>
     </div>
   );
