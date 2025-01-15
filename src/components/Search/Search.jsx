@@ -118,7 +118,7 @@ function Search({ searchData, placeholder }) {
   <form className="wrapper">
   <input 
   type="text"
-  placeholder="Search"
+  placeholder="search"
   className="search wrapper"
   required/>
   <div>

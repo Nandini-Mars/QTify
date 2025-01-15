@@ -1,4 +1,6 @@
 import React from "react";
+import "./ButtonStyles.css"
+
 
 const Button = () => {
     return (
@@ -6,7 +8,6 @@ const Button = () => {
             <button 
             type="submit"
             className="button"
-            style={{ backgroundColor: 'black', color: '#34c94b' }}
             >
                 Give Feedback
             </button>
