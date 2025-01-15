@@ -24,7 +24,7 @@ import Button from "../Button/Button";
 function Navbar() {
   return (
     <div className="navbar">
-    <nav>
+    <nav className="navbar">
       <Logo/>
     </nav>
     </div>
