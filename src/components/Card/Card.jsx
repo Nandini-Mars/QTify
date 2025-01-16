@@ -60,4 +60,4 @@ const AlbumCard = ({
   }
 
 
-export default AlbumCard;
+export default TopAlbum;
