@@ -5,19 +5,21 @@ import "./CardStyle.css";
 // AlbumCard component
 const AlbumCard = ({ image, follows, title }) => {
   return (
-    <div className="album-card">
-      <img className="album-image" src={image} alt={title} />
-      <CardContent className="album-content">
-        <Typography variant="h6" component="div">
-          {title}
-        </Typography>
-        <Chip
-          label={`${follows} follows`}
-          size="small"
-          color="primary"
-          className="follow-chip"
-        />
-      </CardContent>
+    <div>
+      <div className="album-card">
+        <img className="album-image" src={image} alt={title} />
+        <CardContent className="album-content">
+          <Chip
+            label={`${follows} follows`}
+            size="small"
+            color="primary"
+            className="follow-chip"
+          />
+        </CardContent>
+      </div>
+      <Typography variant="h6" component="div">
+        {title}
+      </Typography>
     </div>
   );
 };
@@ -44,7 +46,7 @@ function TopAlbum() {
   return (
     <div className="container">
       {/* Ensure this div is wrapping the list of albums */}
-      <div className="album-cards">
+      <div className="album-cards top-album">
         {data && data.length > 0 ? (
           data.map((album) => (
             <AlbumCard
