@@ -4,24 +4,24 @@ import "./CardStyle.css";
 
 // AlbumCard component
 const AlbumCard = ({ image, follows, title }) => {
-  return (
-    <div>
-      <div className="album-card">
-        <img className="album-image" src={image} alt={title} />
-        <CardContent className="album-content">
-          <Chip
-            label={`${follows} follows`}
-            size="small"
-            color="primary"
-            className="follow-chip"
-          />
-        </CardContent>
-      </div>
-      <Typography variant="h6" component="div">
-        {title}
-      </Typography>
-    </div>
-  );
+    return (
+        <div>
+          <div className="album-card">
+            <img className="album-image" src={image} alt={title} />
+            <CardContent className="album-content">
+              <Chip
+                label={`${follows} follows`}
+                size="small"
+                color="primary"
+                className="follow-chip"
+              />
+            </CardContent>
+          </div>
+          <Typography variant="h6" component="div">
+            {title}
+          </Typography>
+        </div>
+      );
 };
 
 const URL = "https://qtify-backend-labs.crio.do/albums/top";
