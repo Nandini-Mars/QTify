@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Hero from './components/Hero/Hero.jsx';
-import TopAlbum from './components/Card/Card.jsxs'
+import TopAlbum from './components/Card/Card.jsx'
 import "./Styles.css";
 
 function App() {
