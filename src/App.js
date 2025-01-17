@@ -11,7 +11,6 @@ function App() {
     <div className="app">
       <Navbar/>
       <Hero/>
-      <TopAlbum/>
       <Section/>
     </div>
     </>
