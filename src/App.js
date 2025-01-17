@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar/Navbar.jsx';
 import Hero from './components/Hero/Hero.jsx';
-import Section from '.components/Section/Section.jsx';
+import Section from './components/Section/Section.jsx';
 import "./Styles.css";
 
 function App() {
