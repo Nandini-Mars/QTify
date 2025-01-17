@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Section.css";
-import AlbumCard from ".components/Card/AlbumCard";
+import AlbumCard from "../Card/AlbumCard";
 import axios from "axios";
 import { Card, CardContent, Typography, Chip } from "@mui/material";
 
