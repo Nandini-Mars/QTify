@@ -40,7 +40,7 @@ function TopAlbum({ showAll }) {
     <div className="container">
       <div className="album-cards top-album">
         {data && data.length > 0 ? (
-          albumsToShow.map((album) => (
+          data.map((album) => (
             <AlbumCard
               key={album.id}
               image={album.image}
@@ -84,7 +84,7 @@ function NewAlbums({ showAll }) {
     <div className="container">
       <div className="album-cards top-album">
         {data && data.length > 0 ? (
-          albumsToShow.map((album) => (
+          data.map((album) => (
             <AlbumCard
               key={album.id}
               image={album.image}
