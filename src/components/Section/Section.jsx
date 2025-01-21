@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./Section.css";
 import AlbumCard from "../AlbumCard/AlbumCard.jsx";
-import axios from "axios";
-import { Card, CardContent, Typography, Chip } from "@mui/material";
+import { Typography } from "@mui/material";
+import { Autocomplete, TextField, createFilterOptions } from '@mui/material';
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import 'swiper/css/bundle'; 
+import "swiper/css/navigation";
+
+// import required modules
+import { Navigation } from "swiper/modules";
 
 const URL = "https://qtify-backend-labs.crio.do/albums/top";
 
@@ -24,7 +34,7 @@ function TopAlbum({ showAll }) {
   }, []);
 
   // Limit the number of albums shown based on showAll prop
-  const albumsToShow = showAll ? data : data.slice(0, 5); // Show 5 albums initially
+  const albumsToShow = showAll ? data : data.slice(0, 2); // Show 5 albums initially
 
   return (
     <div className="container">
@@ -68,7 +78,7 @@ function NewAlbums({ showAll }) {
   }, []);
 
   // Limit the number of albums shown based on showAll prop
-  const albumsToShow = showAll ? data : data.slice(0, 5); // Show 5 albums initially
+  const albumsToShow = showAll ? data : data.slice(0, 2); // Show 5 albums initially
 
   return (
     <div className="container">
@@ -113,7 +123,16 @@ const Section = () => {
         </h4>
       </div>
       <div>
-        <TopAlbum showAll={topToggle} />
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+          {/* Wrap each Section in a SwiperSlide */}
+          <SwiperSlide>
+            <TopAlbum showAll={topToggle} />
+          </SwiperSlide>
+          {/* You can add more slides here if needed */}
+          <SwiperSlide>
+            <TopAlbum showAll={topToggle} />
+          </SwiperSlide>
+        </Swiper>
       </div>
 
       <div className="album">
@@ -123,7 +142,16 @@ const Section = () => {
         </h4>
       </div>
       <div>
-        <NewAlbums showAll={newToggle} />
+        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+          {/* Wrap each Section in a SwiperSlide */}
+          <SwiperSlide>
+            <NewAlbums showAll={newToggle} />
+          </SwiperSlide>
+          {/* You can add more slides here if needed */}
+          <SwiperSlide>
+            <NewAlbums showAll={newToggle} />
+          </SwiperSlide>
+        </Swiper>
       </div>
     </div>
   );
