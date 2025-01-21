@@ -34,7 +34,7 @@ function TopAlbum({ showAll }) {
   }, []);
 
   // Limit the number of albums shown based on showAll prop
-  const albumsToShow = showAll ? data : data.slice(0, 2); // Show 5 albums initially
+  const albumsToShow = showAll ? data : data.slice(0, 4); // Show 5 albums initially
 
   return (
     <div className="container">
@@ -78,7 +78,7 @@ function NewAlbums({ showAll }) {
   }, []);
 
   // Limit the number of albums shown based on showAll prop
-  const albumsToShow = showAll ? data : data.slice(0, 2); // Show 5 albums initially
+  const albumsToShow = showAll ? data : data.slice(0, 4); // Show 5 albums initially
 
   return (
     <div className="container">
