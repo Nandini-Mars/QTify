@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./Section.css";
 import AlbumCard from "../AlbumCard/AlbumCard.jsx";
 import { Typography } from "@mui/material";
-import { Autocomplete, TextField, createFilterOptions } from '@mui/material';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
-import 'swiper/css/bundle'; 
 import "swiper/css/navigation";
 
 // import required modules
@@ -24,7 +22,7 @@ function TopAlbum({ showAll }) {
       try {
         const response = await fetch(URL);
         const apiData = await response.json();
-        console.log(apiData); // To inspect the fetched data
+        //console.log(apiData); // To inspect the fetched data
         setData(apiData); // Update state with the fetched data
       } catch (error) {
         console.error("Error fetching data", error); // Error handling
@@ -40,7 +38,7 @@ function TopAlbum({ showAll }) {
     <div className="container">
       <div className="album-cards top-album">
         {data && data.length > 0 ? (
-          data.map((album) => (
+          albumsToShow.map((album) => (
             <AlbumCard
               key={album.id}
               image={album.image}
@@ -84,7 +82,7 @@ function NewAlbums({ showAll }) {
     <div className="container">
       <div className="album-cards top-album">
         {data && data.length > 0 ? (
-          data.map((album) => (
+          albumsToShow.map((album) => (
             <AlbumCard
               key={album.id}
               image={album.image}
