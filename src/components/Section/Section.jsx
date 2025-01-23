@@ -1,158 +1,58 @@
-import React, { useState, useEffect } from "react";
-import "./Section.css";
-import AlbumCard from "../AlbumCard/AlbumCard.jsx";
-import { Typography } from "@mui/material";
+import React from 'react'
+import { useState, useEffect } from 'react';
+import './Section.css'
+import AlbumCard from '../AlbumCard/AlbumCard.jsx';
 
-import { Swiper, SwiperSlide } from "swiper/react";
+import Grid from '@mui/material/Grid2';
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
+const topAlbumURL = "https://qtify-backend-labs.crio.do/albums/top";
 
-// import required modules
-import { Navigation } from "swiper/modules";
+function Section() {
+    const [topAlbum, setTopAlbum] = useState([]);
 
-const URL = "https://qtify-backend-labs.crio.do/albums/top";
+    useEffect(() => {
+        const fetchAlbums = async () => {
+          try {
+            const response = await fetch(topAlbumURL);
+            const apiData = await response.json();
+            console.log(apiData);
+            setTopAlbum(apiData);
+          } catch (error) {
+            console.error("Error fetching data", error);
+          }
+        };
+        fetchAlbums();
+      }, []);
+      topAlbum.map((data)=>console.log(data.title));
+      return (
+        <div className="section">
+            <div className="sub-section">
+                <h3 style={{ color: "white" }}>Top Albums</h3>
+                <h4 style={{ color: "#34c94b" }}>Show All</h4>
+            </div>
 
-function TopAlbum({ showAll }) {
-  const [data, setData] = useState([]); // Initialize data as an empty array
+            <div>
 
-  useEffect(() => {
-    const fetchAlbums = async () => {
-      try {
-        const response = await fetch(URL);
-        const apiData = await response.json();
-        //console.log(apiData); // To inspect the fetched data
-        setData(apiData); // Update state with the fetched data
-      } catch (error) {
-        console.error("Error fetching data", error); // Error handling
-      }
-    };
-    fetchAlbums();
-  }, []);
+            <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+            {topAlbum.map((album, index) => {
+                    return (
+                        <AlbumCard 
+                            key={index}
+                            image={album.image} 
+                            follows={album.follows} 
+                            title={album.title} 
+                            index={index}
+                        />
+                    );
+                })}
 
-  // Limit the number of albums shown based on showAll prop
-  const albumsToShow = showAll ? data : data.slice(0, 4); // Show 5 albums initially
+</Grid>
 
-  return (
-    <div className="container">
-      <div className="album-cards top-album">
-        {data && data.length > 0 ? (
-          albumsToShow.map((album) => (
-            <AlbumCard
-              key={album.id}
-              image={album.image}
-              title={album.title}
-              follows={album.follows}
-            />
-          ))
-        ) : (
-          <Typography variant="h6" color="textSecondary">
-            No albums available
-          </Typography>
-        )}
-      </div>
-    </div>
-  );
+
+            </div>
+
+        </div>
+    );
 }
-
-const newURL = "https://qtify-backend-labs.crio.do/albums/top";
-
-function NewAlbums({ showAll }) {
-  const [data, setData] = useState([]); // Initialize data as an empty array
-
-  useEffect(() => {
-    const fetchAlbums = async () => {
-      try {
-        const response = await fetch(newURL);
-        const apiData = await response.json();
-        console.log(apiData); // To inspect the fetched data
-        setData(apiData); // Update state with the fetched data
-      } catch (error) {
-        console.error("Error fetching data", error); // Error handling
-      }
-    };
-    fetchAlbums();
-  }, []);
-
-  // Limit the number of albums shown based on showAll prop
-  const albumsToShow = showAll ? data : data.slice(0, 4); // Show 5 albums initially
-
-  return (
-    <div className="container">
-      <div className="album-cards top-album">
-        {data && data.length > 0 ? (
-          albumsToShow.map((album) => (
-            <AlbumCard
-              key={album.id}
-              image={album.image}
-              title={album.title}
-              follows={album.follows}
-            />
-          ))
-        ) : (
-          <Typography variant="h6" color="textSecondary">
-            No albums available
-          </Typography>
-        )}
-      </div>
-    </div>
-  );
-}
-
-const Section = () => {
-  const [topToggle, setTopToggle] = useState(false); // Default is collapsed (Show All)
-  const [newToggle, setNewToggle] = useState(false);
-
-  const handleTopToggle = () => {
-    setTopToggle(!topToggle);
-  };
-
-  const handleNewToggle = () => {
-    setNewToggle(!newToggle);
-  };
-
-  return (
-    <div>
-      <div className="album">
-        <h3 style={{ color: "white" }}>Top Albums</h3>
-        <h4 style={{ color: "#34c94b" }} onClick={handleTopToggle}>
-          {topToggle ? "Collapse All" : "Show All"}
-        </h4>
-      </div>
-      <div>
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-          {/* Wrap each Section in a SwiperSlide */}
-          <SwiperSlide>
-            <TopAlbum showAll={topToggle} />
-          </SwiperSlide>
-          {/* You can add more slides here if needed */}
-          <SwiperSlide>
-            <TopAlbum showAll={topToggle} />
-          </SwiperSlide>
-        </Swiper>
-      </div>
-
-      <div className="album">
-        <h3 style={{ color: "white" }}>New Albums</h3>
-        <h4 style={{ color: "#34c94b" }} onClick={handleNewToggle}>
-          {newToggle ? "Collapse All" : "Show All"}
-        </h4>
-      </div>
-      <div>
-        <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-          {/* Wrap each Section in a SwiperSlide */}
-          <SwiperSlide>
-            <NewAlbums showAll={newToggle} />
-          </SwiperSlide>
-          {/* You can add more slides here if needed */}
-          <SwiperSlide>
-            <NewAlbums showAll={newToggle} />
-          </SwiperSlide>
-        </Swiper>
-      </div>
-    </div>
-  );
-};
 
 export default Section;

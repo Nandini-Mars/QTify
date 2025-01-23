@@ -1,8 +1,9 @@
-body {
-    background-color: #121212;
-  }
-  .album {
-    display: flex;
-    justify-content: space-between;
-  }
-  
+.section{
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.sub-section {
+  display: flex;
+  justify-content: space-between;
+}
