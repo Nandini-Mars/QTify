@@ -1,134 +1,67 @@
-import React from "react";
-import "./SearchStyles.css";
-import SearchIcon from '@mui/icons-material/Search';
-/*import SearchIcon from '@mui/icons-material/Search';
-import useAutocomplete from "@mui/base/useAutocomplete";
-import { styled } from "@mui/system";
-import { truncate } from "../../helpers/helpers";
-import { useNavigate } from "react-router-dom";
-import { Tooltip } from "@mui/material";
+import * as React from "react";
+import { styled, alpha } from "@mui/material/styles";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import InputBase from "@mui/material/InputBase";
+import SearchIcon from "@mui/icons-material/Search";
 
-const Listbox = styled("ul")(({ theme }) => ({
-  width: "100%",
-  margin: 0,
-  padding: 0,
-  position: "absolute",
-  borderRadius: "0px 0px 10px 10px",
-  border: "1px solid var(--color-primary)",
-  top: 60,
-  height: "max-content",
-  maxHeight: "500px",
-  zIndex: 10,
-  overflowY: "scroll",
-  left: 0,
-  bottom: 0,
-  right: 0,
-  listStyle: "none",
-  backgroundColor: "var(--color-black)",
-  overflow: "auto",
-  "& li.Mui-focused": {
-    backgroundColor: "#4a8df6",
-    color: "white",
-    cursor: "pointer",
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  "&:hover": {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
   },
-  "& li:active": {
-    backgroundColor: "#2977f5",
-    color: "white",
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: "100%",
+  [theme.breakpoints.up("sm")]: {
+    marginLeft: theme.spacing(3),
+    width: "auto",
   },
 }));
 
-/*function Search({ searchData, placeholder }) {
-  const {
-    getRootProps,
-    getInputLabelProps,
-    value,
-    getInputProps,
-    getListboxProps,
-    getOptionProps,
-    groupedOptions,
-  } = useAutocomplete({
-    id: "use-autocomplete-demo",
-    options: searchData || [],
-    getOptionLabel: (option) => option.title,
-  });
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
 
-  const navigate = useNavigate();
-  const onSubmit = (e, value) => {
-    e.preventDefault();
-    console.log(value);
-    navigate(`/album/${value.slug}`);
-    //Process form data, call API, set state etc.
-  };
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: "inherit",
+  "& .MuiInputBase-input": {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("md")]: {
+      width: "20ch",
+    },
+  },
+}));
 
+export default function PrimarySearchAppBar() {
   return (
-    <div style={{ position: "relative" }}>
-      <form
-        className="SearchStyles.css"
-        onSubmit={(e) => {
-          onSubmit(e, value);
-        }}
-      >
-        <div {...getRootProps()}>
-          <input
-            name="album"
-            className="SearchStyles.css"
-            placeholder={placeholder}
-            required
-            {...getInputProps()}
-          />
-        </div>
-        <div>
-          <button className={styles.searchButton} type="submit">
-            <SearchIcon />
-          </button>
-        </div>
-      </form>
-      {groupedOptions.length > 0 ? (
-        <Listbox {...getListboxProps()}>
-          {groupedOptions.map((option, index) => {
-            // console.log(option);
-            const artists = option.songs.reduce((accumulator, currentValue) => {
-              accumulator.push(...currentValue.artists);
-              return accumulator;
-            }, []);
-
-            return (
-              <li
-                className={styles.listElement}
-                {...getOptionProps({ option, index })}
-              >
-                <div>
-                  <p className={styles.albumTitle}>{option.title}</p>
-
-                  <p className={styles.albumArtists}>
-                    {truncate(artists.join(", "), 40)}
-                  </p>
-                </div>
-              </li>
-            );
-          })}
-        </Listbox>
-      ) : null}
-    </div>
-  );
-}*/
-function Search({ searchData, placeholder }) {
-  return(
-<div>
-  <form className="wrapper">
-  <input 
-  type="text"
-  placeholder={placeholder}
-  className="search"
-  required/>
-  <div>
-  <button className="searchButton" type="submit">
-            <SearchIcon />
-          </button>
-  </div>
-  </form>
-</div>
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="search"
+              inputProps={{ "aria-label": "search" }}
+            />
+          </Search>
+        </Toolbar>
+      </AppBar>
+    </Box>
   );
 }
-
-export default Search;
