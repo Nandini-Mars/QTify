@@ -75,13 +75,12 @@ export default function PrimarySearchAppBar() {
             <Logo/>
           </IconButton>
           
-          <Search>
+          <Search placeholder="search">
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="search"
-              inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
