@@ -1,124 +1,141 @@
 import * as React from "react";
-import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
 import Songs from "../Songs/Songs";
+import { useState, useEffect } from "react";
 import AlbumCard from "../AlbumCard/AlbumCard";
 
+import Grid from "@mui/material/Grid2";
 
+import { Swiper, SwiperSlide } from "swiper/react";
 
-function CustomTabPanel(props) {
-  const { children, value, index, ...other } = props;
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-    </div>
-  );
-}
+import { Pagination, Navigation } from "swiper/modules";
 
-CustomTabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
+import "./SongTabs.css";
 
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
+const songURL = "https://qtify-backend-labs.crio.do/songs";
 
-export default function BasicTabs({genreList, songList}) {
-  const [value, setValue] = React.useState(0);
+export default function SongTab() {
+  const [value, setValue] = React.useState("All");
 
-  //  console.log("Props:", props);
-  //  const arr = props;
-  //  console.log("Var:", arr);
-  //  console.log("Data:", arr.genreList);
-  //  console.log("DataDetails:", arr.genreList.data);
-  //  const genreData = props.genreList.data;
+  const [songData, setSongData] = useState([]);
 
-   //console.log("genreData", genreData);
-   const genreData = genreList.data;
-   const songData = songList;
+  useEffect(() => {
+    const fetchSongs = async () => {
+      const songResponse = await fetch(songURL);
+      const songAPIData = await songResponse.json();
+      setSongData(songAPIData);
+    };
+    fetchSongs();
+  }, []);
 
-   console.log("genre", genreData);
-   console.log("song", songData);
+  const [swiperRef, setSwiperRef] = useState(null);
 
-   const handleChange = (event, newValue) => {
+  const handleChange = (event, newValue) => {
+    console.log("value:", newValue);
     setValue(newValue);
   };
 
-   //return(<div style={{ color: "#FFFFFF" }}>Hello</div>)
-
-   //genreData.map((genreDisplay)=>console.log(genreDisplay.label));
-
-   /*return (
-    <>
-      <h1 style={{ color: "#FFFFFF" }}>Hello, here are the genres:</h1>
-      {genreData && genreData.length > 0 ? (
-        genreData.map((genreDisplay, index) => (
-          <h2 key={index} style={{ color: "#FFFFFF" }}>
-            {genreDisplay.label}
-          </h2>
-        ))
-      ) : (
-        <p>No genres available</p>
-      )}
-    </>
+  const filteredJazzSongs = songData.filter(
+    (song, idx) => song.genre.label === "Jazz"
   );
-  */
+  console.log("Jazz:", filteredJazzSongs);
+
+  const filteredRockSongs = songData.filter(
+    (song, idx) => song.genre.label === "Rock"
+  );
+  console.log("Rock:", filteredRockSongs);
+
+  const filteredPopSongs = songData.filter(
+    (song, idx) => song.genre.label === "Pop"
+  );
+  console.log("Pop:", filteredPopSongs);
+
+  const filteredBluesSongs = songData.filter(
+    (song, idx) => song.genre.label === "Blues"
+  );
+  console.log("Blues:", filteredBluesSongs);
+
   return (
-    <>
-     
-    <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="basic tabs example"
-          textColor="#FFFFFF"
-          indicatorColor="#FFFFFF"
-        >
-                {genreData && genreData.length > 0 ? (
-        genreData.map((genreDisplay, index) => (
-<Tab style={{color:"#FFFFFF"}} label={genreDisplay.label} {...a11yProps(index)} />
-        ))
-      ) : (
-        <p>No genres available</p>
-      )}
-          
-        </Tabs>
+    <div className="tabs">
+      <h1>Songs</h1>
+      <Box sx={{ width: "100%", typography: "body1" }}>
+        <TabContext value={value}>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <TabList onChange={handleChange} aria-label="lab API tabs example">
+              <Tab style={{ color: "white" }} label="All" value="All" />
+              <Tab style={{ color: "white" }} label="Jazz" value="Jazz" />
+              <Tab style={{ color: "white" }} label="Rock" value="Rock" />
+              <Tab style={{ color: "white" }} label="Pop" value="Pop" />
+              <Tab style={{ color: "white" }} label="Blues" value="Blues" />
+            </TabList>
+          </Box>
+          <div className="panelTab">
+            <TabPanel value="All">
+              {songData.map((song, idx) => (
+                <Grid container spacing={3}>
+                  <Grid size="grow">
+                    <AlbumCard
+                      image={song.image}
+                      follows={song.likes}
+                      title={song.title}
+                      index={idx}
+                    />
+                  </Grid>
+                </Grid>
+              ))}
+            </TabPanel>
+            <TabPanel value="Jazz">
+              {filteredJazzSongs.map((song, idx) => (
+                <AlbumCard
+                  image={song.image}
+                  follows={song.likes}
+                  title={song.title}
+                  index={idx}
+                />
+              ))}
+            </TabPanel>
+            <TabPanel value="Rock">
+              {filteredRockSongs.map((song, idx) => (
+                <AlbumCard
+                  image={song.image}
+                  follows={song.likes}
+                  title={song.title}
+                  index={idx}
+                />
+              ))}
+            </TabPanel>
+            <TabPanel value="Pop">
+              {filteredPopSongs.map((song, idx) => (
+                <AlbumCard
+                  image={song.image}
+                  follows={song.likes}
+                  title={song.title}
+                  index={idx}
+                />
+              ))}
+            </TabPanel>
+            <TabPanel value="Blues">
+              {filteredBluesSongs.map((song, idx) => (
+                <AlbumCard
+                  image={song.image}
+                  follows={song.likes}
+                  title={song.title}
+                  index={idx}
+                />
+              ))}
+            </TabPanel>
+          </div>
+        </TabContext>
       </Box>
-
-
-{songData && songData.length > 0 ? (
-        songData.map((SongDisplay, index) => (
-          <CustomTabPanel value={value} style={{color:"#FFFFFF"}}  index={index}>
-                      <AlbumCard
-              key={SongDisplay.id}
-              image={SongDisplay.image}
-              title={SongDisplay.title}
-              follows={SongDisplay.likes}
-            />
-        </CustomTabPanel>
-        ))
-      ) : (
-        <p>No genres available</p>
-      )}
-
-    </Box>
-    </>
+    </div>
   );
-
-  
 }

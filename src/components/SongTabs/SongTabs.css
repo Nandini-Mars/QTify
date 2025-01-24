@@ -1,0 +1,9 @@
+  
+  .tabs {
+    color: #ffffff;
+  }
+  .panelTab {
+    display: flex;
+    justify-content: space-between;
+  }
+  
